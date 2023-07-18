@@ -15,8 +15,15 @@ import { Image, StyleSheet, View } from "react-native";
 const TabStack = () => {
   const Tabs = createBottomTabNavigator();
   return (
-    <View style={styles.container}>
-    <Tabs.Navigator screenOptions={{ headerShown: false , tabBarStyle: {backgroundColor: 'rgba(24, 39, 36)',}}} >
+    <Tabs.Navigator screenOptions={{ 
+      headerShown: false , tabBarStyle: {height: 90,
+      paddingHorizontal: 5,
+      paddingTop: 0,
+      backgroundColor: 'rgba(34,36,40,0.85)',
+      position: 'absolute',
+      borderTopWidth: 0,
+      borderTopLeftRadius:40,
+      borderTopRightRadius:40}}} >
       <Tabs.Screen
         options={{
           tabBarIcon: () => <Image source={home_icon} style={{ width: 24, height: 24 }} />,tabBarLabel: '',
@@ -46,16 +53,10 @@ const TabStack = () => {
         name="profile"
         component={Profile}
       />
-    </Tabs.Navigator></View>
+    </Tabs.Navigator>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#182724',
-    color:'#182724'
-  },
-});
+
 
 export default TabStack;
